@@ -1,15 +1,27 @@
 // packages/baseline-checker/src/index.js
+
 const { features } = require('web-features'); 
 const webFeatures = Object.values(features);
     
-function getViolation(featureId) { // <--- The function MUST be defined like this
+/**
+ * Checks a feature for compliance against 'web-features' data.
+ * @param {string} featureId - The unique ID for the feature (e.g., 'array-flat').
+ * @returns {object | null} Violation metadata or null if compliant.
+ */
+function getViolation(featureId) {
     const feature = webFeatures.find(f => f.id === featureId);
     
-    // ... rest of your logic ...
+    // Check for array-flat compliance (as an example)
+    if (feature && feature.status.baseline === false) {
+        return {
+            name: feature.name,
+            status: 'limited',
+            message: `Feature ${feature.name} is not Baseline compliant (Limited Availability).`,
+            ast_path: feature.ast_path
+        };
+    }
 
-    // Compliant ('low' or 'high')
     return null; 
 }
     
-// 🌟 CRITICAL: This line makes the function available to other packages 🌟
 module.exports = { getViolation };

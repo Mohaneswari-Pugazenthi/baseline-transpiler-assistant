@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Dual-Engine Baseline Transpiler Assistant",
   "main": "index.js",
-  "workspaces": [ "packages/*" ],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node packages/cli-tool/src/cli.js"
@@ -18,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/Mohaneswari-Pugazenthi/baseline-transpiler-assistant/issues"
   },
-  "homepage": "https://github.com/Mohaneswari-Pugazenthi/baseline-transpiler-assistant#readme"
+  "homepage": "https://github.com/Mohaneswari-Pugazenthi/baseline-transpiler-assistant#readme",
+  "dependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "chalk": "^4.1.2"
+  }
 }
